@@ -9,11 +9,10 @@ namespace дз
             Random random = new Random();
             int[] numbers = new int[30];
             for (int i = 0; i < numbers.Length; i++)
-            {   
-                    numbers[i] = random.Next(1, 51);
-                    Console.Write(numbers[i] +" ");
+            {
+                numbers[i] = random.Next(1, 51);
+                Console.Write(numbers[i] + " ");
             }
-
             Console.Write("\nЛокальные максимумы: ");
             for (int i = 1; i < numbers.Length-1; i++)
             {
@@ -21,7 +20,6 @@ namespace дз
                 {
                     Console.Write(numbers[i] + " ");
                 }
-                
             }
         }
     }
