@@ -1,0 +1,48 @@
+using System;
+
+namespace дз
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int number;
+            int sum = 0;
+            bool isWorking = true; 
+            int[] numbers = new int[1];
+
+            Console.WriteLine("Вводите числа в массив. Наберите sum чтобы узнать их сумму или exit чтобы выйти из программы");
+            while(isWorking) 
+            {
+                string userInput = Console.ReadLine();
+                if (userInput == "exit")
+                {
+                    isWorking = false;
+                }
+                else if (userInput == "sum")
+                {
+                    for (int i = 0; i < numbers.Length; i++)
+                    {
+                        sum += numbers[i];
+                    }
+                    Console.WriteLine("Сумма элементов равна: " + sum);
+                }
+                else if (userInput != "exit" && userInput!= "sum")
+                {
+                    Console.WriteLine("Ошибка ввода!!!");
+                }
+                else
+                {
+                    int[] tempNumbers = new int[numbers.Length + 1];
+                    for (int i = 0; i < numbers.Length; i++)
+                    {
+                        tempNumbers[i] = numbers[i];
+                    }
+                    number = Convert.ToInt32(userInput);
+                    tempNumbers[numbers.Length - 1] = number;
+                    numbers = tempNumbers;
+                }  
+            } 
+        }
+    }
+}
