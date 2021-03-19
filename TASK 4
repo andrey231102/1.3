@@ -15,33 +15,38 @@ namespace дз
             while(isWorking) 
             {
                 string userInput = Console.ReadLine();
-                if (userInput == "exit")
+                try
                 {
-                    isWorking = false;
-                }
-                else if (userInput == "sum")
-                {
-                    for (int i = 0; i < numbers.Length; i++)
+                    if (userInput == "exit")
                     {
-                        sum += numbers[i];
+                        isWorking = false;
+                        break;
                     }
-                    Console.WriteLine("Сумма элементов равна: " + sum);
-                }
-                else if (userInput != "exit" && userInput!= "sum")
-                {
-                    Console.WriteLine("Ошибка ввода!!!");
-                }
-                else
-                {
-                    int[] tempNumbers = new int[numbers.Length + 1];
-                    for (int i = 0; i < numbers.Length; i++)
+                    else if (userInput == "sum")
                     {
-                        tempNumbers[i] = numbers[i];
+                        for (int i = 0; i < numbers.Length; i++)
+                        {
+                            sum += numbers[i];
+                        }
+                        Console.WriteLine("Сумма элементов равна: " + sum);
                     }
-                    number = Convert.ToInt32(userInput);
-                    tempNumbers[numbers.Length - 1] = number;
-                    numbers = tempNumbers;
-                }  
+                    else
+                    {
+                        int[] tempNumbers = new int[numbers.Length + 1];
+                        for (int i = 0; i < numbers.Length; i++)
+                        {
+                            tempNumbers[i] = numbers[i];
+                        }
+                        number = Convert.ToInt32(userInput);
+                        tempNumbers[tempNumbers.Length - 1] = number;
+                        numbers = tempNumbers;
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Ошибка ввода");
+                    continue;
+                }
             } 
         }
     }
